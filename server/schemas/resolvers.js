@@ -41,8 +41,15 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    //how to take args as input?
-    saveBook: async () => {},
+
+    saveBook: async (parent, { bookData }) => {
+      const updatedUser = await User.findOneAndUpdate(
+        { _id: user._id },
+        { $addToSet: { savedBooks: bookData } },
+        { new: true, runValidators: true }
+      );
+      return updatedUser;
+    },
   },
 };
 
