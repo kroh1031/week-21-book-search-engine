@@ -9,8 +9,8 @@ const { signToken } = require("../utils/auth");
 
 const resolvers = {
   Query: {
-    me: async () => {
-      return User.find();
+    me: async (parent, { userId }) => {
+      return User.findOne({ _id: userId });
     },
   },
 
