@@ -57,3 +57,14 @@ export const SAVE_BOOK = gql`
     }
   }
 `;
+
+// 	* `REMOVE_BOOK` will execute the `removeBook` mutation.
+export const REMOVE_BOOK = gql`
+  mutation removeSingleBook($bookId: ID!) {
+    removeBook(bookId: $bookId) {
+      _id
+      username
+      savedBooks
+    }
+  }
+`;
