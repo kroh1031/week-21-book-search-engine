@@ -8,7 +8,7 @@ export const GET_ME = gql`
       _id
       username
       email
-      # savedBooks (returns error message:"String cannot represent value")
+      savedBooks 
       bookCount
     }
   }
